@@ -1,0 +1,933 @@
+/* Стили для попапов с визуализацией данных VODeco */
+
+/* Базовые стили попапа */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(0, 20, 30, 0.95));
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 900px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 180, 216, 0.3);
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 180, 216, 0.2);
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.popup-close:hover {
+    background: var(--accent-color);
+    color: var(--background-dark);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.popup-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 30px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.popup-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-body {
+    padding: 30px;
+    max-height: calc(90vh - 120px);
+    overflow-y: auto;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Кастомный скроллбар */
+.popup-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-body::-webkit-scrollbar-track {
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 4px;
+}
+
+.popup-body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.popup-body::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Highlight блок */
+.popup-highlight {
+    background: rgba(0, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 25px;
+    animation: slideInLeft 0.5s ease;
+}
+
+.popup-highlight h4 {
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.popup-highlight p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Таблицы */
+.popup-table-container {
+    margin: 25px 0;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.popup-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 180, 216, 0.05);
+}
+
+.popup-table thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.popup-table th {
+    padding: 15px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.popup-table tbody tr {
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.popup-table tbody tr:hover {
+    background: rgba(0, 180, 216, 0.15);
+    transform: translateX(5px);
+}
+
+.popup-table td {
+    padding: 15px;
+    color: var(--text-color);
+}
+
+.popup-table td strong {
+    color: var(--accent-color);
+}
+
+.price-cell {
+    color: #00ff00;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.unlock-cell {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.dao-available {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.irr-cell {
+    color: #00ff00;
+    font-weight: 700;
+}
+
+.breakdown-label {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.breakdown-value {
+    text-align: right;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.status-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge.active {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+}
+
+.status-badge.pending {
+    background: rgba(255, 170, 0, 0.2);
+    color: #ffaa00;
+}
+
+/* Метрики в сетке */
+.popup-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.popup-metric-card {
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.popup-metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+    border-color: var(--accent-color);
+}
+
+.metric-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.popup-metric-card h5 {
+    color: var(--text-color);
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.popup-metric-card .metric-value {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Секторы */
+.popup-sectors {
+    margin: 25px 0;
+}
+
+.popup-sectors h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.sector-card {
+    background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(0, 119, 182, 0.1));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInScale 0.5s ease forwards;
+    opacity: 0;
+}
+
+.sector-card:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+.sector-card h5 {
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+}
+
+.sector-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sector-roi {
+    color: #00ff00;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.sector-period {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Графики и диаграммы */
+.popup-chart {
+    margin: 25px 0;
+}
+
+.popup-chart h4 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Горизонтальные бары */
+.chart-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chart-bar-item {
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+.chart-bar-label {
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.chart-bar-wrapper {
+    position: relative;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 35px;
+}
+
+.chart-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    transition: width 1s ease;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+}
+
+.chart-bar-value {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.chart-bar-percentage {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Круговые диаграммы для потерь */
+.loss-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.loss-card {
+    text-align: center;
+    animation: fadeInScale 0.5s ease forwards;
+    opacity: 0;
+}
+
+.loss-circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+}
+
+.loss-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(0, 180, 216, 0.2);
+    stroke-width: 3;
+}
+
+.circle {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: fillCircle 1.5s ease forwards;
+}
+
+.percentage {
+    fill: var(--accent-color);
+    font-size: 0.5em;
+    font-weight: 700;
+    text-anchor: middle;
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
+.loss-card h5 {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Загрязнение */
+.pollution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.pollution-card {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.pollution-card h5 {
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+}
+
+.pollution-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff4444;
+    margin: 10px 0;
+}
+
+.pollution-note {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Списки */
+.popup-list {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(0, 180, 216, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.popup-list.warning {
+    border-left-color: #ffaa00;
+    background: rgba(255, 170, 0, 0.05);
+}
+
+.popup-list.danger {
+    border-left-color: #ff4444;
+    background: rgba(255, 0, 0, 0.05);
+}
+
+.popup-list.success {
+    border-left-color: #00ff00;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.popup-list h4 {
+    color: var(--primary-color);
+    margin: 0 0 15px 0;
+}
+
+.popup-list ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.popup-list li {
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+.popup-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.popup-list.warning li::before {
+    color: #ffaa00;
+}
+
+.popup-list.danger li::before {
+    color: #ff4444;
+}
+
+.popup-list.success li::before {
+    color: #00ff00;
+}
+
+/* Features Grid */
+.popup-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.feature-card-popup {
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.feature-card-popup:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+}
+
+.feature-card-popup h5 {
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+}
+
+.feature-card-popup p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Участники */
+.participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.participant-card {
+    background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(144, 224, 239, 0.1));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    animation: fadeInScale 0.5s ease forwards;
+    opacity: 0;
+}
+
+.participant-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.participant-card h5 {
+    color: var(--accent-color);
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+.participant-count {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.participant-percentage {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Pie Chart */
+.pie-chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 180, 216, 0.05);
+    border-radius: 12px;
+}
+
+.pie-segment-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 8px;
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+.pie-segment-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pie-segment-name {
+    flex: 1;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.pie-segment-percentage {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Production */
+.production-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.production-card {
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.production-card h5 {
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+}
+
+.production-bar {
+    background: rgba(0, 180, 216, 0.2);
+    border-radius: 10px;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.production-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.production-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.production-volume {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.production-percentage {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Quality Bars */
+.quality-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quality-bar-item {
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+.quality-label {
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.quality-bar-wrapper {
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 10px;
+    height: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quality-bar {
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    transition: width 1s ease;
+}
+
+.quality-bar.positive {
+    background: linear-gradient(90deg, #00ff00, #00cc00);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.quality-bar.negative {
+    background: linear-gradient(90deg, #ff4444, #cc0000);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.quality-value {
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Voting Progress */
+.popup-voting {
+    margin: 25px 0;
+}
+
+.popup-voting h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.voting-progress-bar {
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 15px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.voting-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 15px;
+    transition: width 1s ease;
+    box-shadow: 0 0 25px rgba(0, 180, 216, 0.6);
+    animation: pulse 2s infinite;
+}
+
+.voting-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.voting-deadline {
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 10px 0;
+}
+
+.goals-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.goals-list li {
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: rgba(0, 180, 216, 0.1);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 6px;
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fillCircle {
+    from {
+        stroke-dasharray: 0, 100;
+    }
+}
+
+.animate-item {
+    opacity: 0;
+}
+
+.animate-item.animated {
+    opacity: 1;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 95vw;
+        max-height: 95vh;
+    }
+
+    .popup-header {
+        padding: 20px;
+    }
+
+    .popup-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .popup-body {
+        padding: 20px;
+    }
+
+    .popup-metrics-grid,
+    .sectors-grid,
+    .loss-grid,
+    .pollution-grid,
+    .participants-grid,
+    .popup-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-table {
+        font-size: 0.85rem;
+    }
+
+    .popup-table th,
+    .popup-table td {
+        padding: 10px;
+    }
+}
+
+
+

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VODeco - Децентрализованная экосистема водных ресурсов</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/popup-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон с паутиной -->
+    <div class="spider-web-background">
+        <canvas id="spiderWebCanvas"></canvas>
+        <div class="wave-overlay"></div>
+    </div>
+
+    <!-- Хэдэр -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Бургер меню слева -->
+            <div class="burger-menu">
+                <button class="burger-btn" id="burgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="burger-content" id="burgerContent">
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#home" class="nav-link active">Главная</a></li>
+                            <li><a href="#dashboard" class="nav-link">Панель</a></li>
+                            <li><a href="#dao" class="nav-link">DAO</a></li>
+                            <li><a href="#tokenhub" class="nav-link">Токены</a></li>
+                            <li><a href="#vodcheck" class="nav-link">VOD Check</a></li>
+                            <li><a href="#missions" class="nav-link">Миссии</a></li>
+                            <li><a href="#groups" class="nav-link">Группы</a></li>
+                            <li><a href="#presentation" class="nav-link">Презентация</a></li>
+                            <li><a href="#account" class="nav-link">Аккаунт</a></li>
+                            <li><a href="#wallet" class="nav-link">Кошелек</a></li>
+                            <li><a href="#exchange" class="nav-link">Биржа</a></li>
+                            <li><a href="#missions" class="nav-link">Миссии</a></li>
+                            <li><a href="#groups" class="nav-link">Группы</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Логотип VODECO с паутинками -->
+            <div class="logo-container">
+                <div class="logo-spider-web">
+                    <div class="spider-points">
+                        <div class="point point-1"></div>
+                        <div class="point point-2"></div>
+                        <div class="point point-3"></div>
+                        <div class="point point-4"></div>
+                        <div class="point point-5"></div>
+                        <div class="point point-6"></div>
+                    </div>
+                    <div class="spider-lines">
+                        <div class="line line-1"></div>
+                        <div class="line line-2"></div>
+                        <div class="line line-3"></div>
+                        <div class="line line-4"></div>
+                        <div class="line line-5"></div>
+                        <div class="line line-6"></div>
+                    </div>
+                </div>
+                <h1 class="logo-text">VODECO</h1>
+            </div>
+
+            <!-- Переключение языка справа -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Секция Landing -->
+        <section id="home" class="page-section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-animation">
+                        <div class="water-drop">
+                            <div class="drop-shape"></div>
+                            <div class="ripples">
+                                <div class="ripple ripple-1"></div>
+                                <div class="ripple ripple-2"></div>
+                                <div class="ripple ripple-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="hero-title">Децентрализованная экосистема водных ресурсов</h2>
+                    <p class="hero-subtitle">Объединяем технологии блокчейн, IoT и AI для устойчивого управления водными ресурсами</p>
+                    <div class="hero-stats">
+                        <div class="stat-item" data-popup="heroStats.waterOnEarth">
+                            <div class="stat-number">1.4B</div>
+                            <div class="stat-label">км³ воды на Земле</div>
+                        </div>
+                        <div class="stat-item" data-popup="heroStats.freshWater">
+                            <div class="stat-number">35M</div>
+                            <div class="stat-label">км³ пресной воды</div>
+                        </div>
+                        <div class="stat-item" data-popup="heroStats.availableWater">
+                            <div class="stat-number">200K</div>
+                            <div class="stat-label">км³ доступной воды</div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-popup="solutions.dao">Присоединиться к DAO</button>
+                        <button class="btn btn-secondary" data-popup="tokenomics.presale">Узнать о PreSale</button>
+                        <button class="btn btn-outline" data-popup="demoProjects">Демо объектов</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Проблема -->
+            <div class="problem-section">
+                <h3>Глобальный водный кризис</h3>
+                <div class="problem-stats">
+                    <div class="problem-item" data-popup="problems.waterDeficit">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Дефицит воды</h4>
+                        <p>2.2 млрд человек не имеют доступа к безопасной питьевой воде</p>
+                    </div>
+                    <div class="problem-item" data-popup="problems.pollution">
+                        <i class="fas fa-pollution"></i>
+                        <h4>Загрязнение</h4>
+                        <p>20-30% водных ресурсов загрязнены промышленными отходами</p>
+                    </div>
+                    <div class="problem-item" data-popup="problems.inefficiency">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Неэффективность</h4>
+                        <p>40% потерь воды из-за устаревшей инфраструктуры</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Решение -->
+            <div class="solution-section">
+                <h3>Решение VODeco</h3>
+                <div class="solution-features">
+                    <div class="feature-card" data-popup="solutions.iot">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>IoT Мониторинг</h4>
+                        <p>Реальное время мониторинга качества и количества воды</p>
+                    </div>
+                    <div class="feature-card" data-popup="solutions.tokenization">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h4>Токенизация</h4>
+                        <p>1 VOD = 1 км³ воды, привязка к реальным активам</p>
+                    </div>
+                    <div class="feature-card" data-popup="solutions.dao">
+                        <div class="feature-icon">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <h4>DAO Управление</h4>
+                        <p>Децентрализованное принятие решений сообществом</p>
+                    </div>
+                    <div class="feature-card" data-popup="solutions.ai">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI Аналитика</h4>
+                        <p>Искусственный интеллект для оптимизации водопользования</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Dashboard -->
+        <section id="dashboard" class="page-section">
+            <div class="dashboard-container">
+                <h2>Панель управления</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Глобальная карта</h3>
+                        <div class="map-container">
+                            <div class="globe-animation">
+                                <div class="globe">
+                                    <div class="globe-surface"></div>
+                                    <div class="globe-points">
+                                        <div class="globe-point point-1"></div>
+                                        <div class="globe-point point-2"></div>
+                                        <div class="globe-point point-3"></div>
+                                        <div class="globe-point point-4"></div>
+                                        <div class="globe-point point-5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Показатели</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-item" data-popup="dashboardMetrics.objects">
+                                <div class="metric-value">1,247</div>
+                                <div class="metric-label">Объектов</div>
+                            </div>
+                            <div class="metric-item" data-popup="dashboardMetrics.investments">
+                                <div class="metric-value">$2.4M</div>
+                                <div class="metric-label">Инвестиции</div>
+                            </div>
+                            <div class="metric-item" data-popup="dashboardMetrics.production">
+                                <div class="metric-value">15.6K</div>
+                                <div class="metric-label">м³/день</div>
+                            </div>
+                            <div class="metric-item" data-popup="dashboardMetrics.participants">
+                                <div class="metric-value">8,432</div>
+                                <div class="metric-label">Участников</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция DAO -->
+        <section id="dao" class="page-section">
+            <div class="dao-container">
+                <h2>DAO Управление</h2>
+                <div class="dao-content">
+                    <div class="proposals-section">
+                        <h3>Активные предложения</h3>
+                        <div class="proposal-list">
+                            <div class="proposal-item" data-popup="daoProposals.0">
+                                <div class="proposal-header">
+                                    <h4>Модернизация очистных сооружений в Европе</h4>
+                                    <span class="proposal-status active">Активно</span>
+                                </div>
+                                <p>Предложение по обновлению инфраструктуры очистки воды в 15 городах Европы</p>
+                                <div class="proposal-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Голосов:</span>
+                                        <span class="metric-value">2,847 / 5,000</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Осталось:</span>
+                                        <span class="metric-value">3 дня</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Проголосовать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voting-section">
+                        <h3>Создать предложение</h3>
+                        <form class="proposal-form">
+                            <input type="text" placeholder="Название предложения" required>
+                            <textarea placeholder="Описание предложения" required></textarea>
+                            <input type="number" placeholder="Бюджет (VOD)" required>
+                            <button type="submit" class="btn btn-primary">Создать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция TokenHub -->
+        <section id="tokenhub" class="page-section">
+            <div class="tokenhub-container">
+                <h2>Токеномика VOD</h2>
+                <div class="token-info">
+                    <div class="token-card">
+                        <h3>VODG (Governance)</h3>
+                        <div class="token-details">
+                            <div class="token-balance">1,250 VODG</div>
+                            <div class="token-description">Токены управления для голосования в DAO</div>
+                        </div>
+                    </div>
+                    <div class="token-card">
+                        <h3>VODP (Project)</h3>
+                        <div class="token-details">
+                            <div class="token-balance">5,680 VODP</div>
+                            <div class="token-description">Токены проектов для инвестирования</div>
+                        </div>
+                    </div>
+                    <div class="token-card">
+                        <h3>VODU (Utility)</h3>
+                        <div class="token-details">
+                            <div class="token-balance">12,450 VODU</div>
+                            <div class="token-description">Утилитарные токены для использования сервисов</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="staking-section">
+                    <h3>Стейкинг</h3>
+                    <div class="staking-options">
+                        <div class="staking-option">
+                            <h4>Базовый стейкинг</h4>
+                            <div class="staking-rate">5-15% годовых</div>
+                            <div class="staking-period">1-36 месяцев</div>
+                        </div>
+                        <div class="staking-option">
+                            <h4>Экологический</h4>
+                            <div class="staking-rate">+5% бонус</div>
+                            <div class="staking-period">Экологические проекты</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция VOD Check -->
+        <section id="vodcheck" class="page-section">
+            <div class="vodcheck-container">
+                <h2>VOD Check - Мониторинг воды</h2>
+                <div class="monitoring-dashboard">
+                    <div class="water-quality">
+                        <h3>Качество воды</h3>
+                        <div class="quality-metrics">
+                            <div class="quality-item">
+                                <div class="quality-label">pH</div>
+                                <div class="quality-value good">7.2</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-label">Кислород</div>
+                                <div class="quality-value good">8.5 мг/л</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-label">Температура</div>
+                                <div class="quality-value normal">18°C</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-label">Загрязнение</div>
+                                <div class="quality-value warning">2.3%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="water-usage">
+                        <h3>Использование воды</h3>
+                        <div class="usage-chart">
+                            <div class="chart-container">
+                                <canvas id="usageChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Аккаунт -->
+        <section id="account" class="page-section">
+            <div class="account-container">
+                <h2>Личный кабинет</h2>
+                <div class="account-content">
+                    <div class="profile-section">
+                        <div class="profile-header">
+                            <div class="avatar-container">
+                                <div class="avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="profile-info">
+                                    <h3>Александр Водный</h3>
+                                    <p class="user-level">Уровень: Эксперт</p>
+                                    <p class="user-status">Статус: Активный участник</p>
+                                </div>
+                            </div>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">1,247</div>
+                                    <div class="stat-label">VODG</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">5,680</div>
+                                    <div class="stat-label">VODP</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">12,450</div>
+                                    <div class="stat-label">VODU</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <div class="detail-section">
+                                <h4>Активность</h4>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <i class="fas fa-vote-yea"></i>
+                                        <span>Участие в голосованиях: 47</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Проекты: 12</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Приглашено: 8</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Достижения</h4>
+                                <div class="achievements">
+                                    <div class="achievement-item">
+                                        <i class="fas fa-trophy"></i>
+                                        <span>Экологический активист</span>
+                                    </div>
+                                    <div class="achievement-item">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Участник DAO</span>
+                                    </div>
+                                    <div class="achievement-item">
+                                        <i class="fas fa-star"></i>
+                                        <span>Инноватор</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Настройки</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Имя</label>
+                                <input type="text" value="Александр" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="alex@vodeco.org" />
+                            </div>
+                            <div class="form-group">
+                                <label>Регион</label>
+                                <select>
+                                    <option>Европа</option>
+                                    <option>Азия</option>
+                                    <option>Северная Америка</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Кошелек -->
+        <section id="wallet" class="page-section">
+            <div class="wallet-container">
+                <h2>Кошелек</h2>
+                <div class="wallet-content">
+                    <div class="balance-section">
+                        <h3>Баланс токенов</h3>
+                        <div class="token-balances">
+                            <div class="balance-card">
+                                <div class="token-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <div class="balance-info">
+                                    <div class="token-name">VODG</div>
+                                    <div class="balance-amount">1,247.50</div>
+                                    <div class="balance-usd">≈ $1,247.50</div>
+                                </div>
+                            </div>
+                            <div class="balance-card">
+                                <div class="token-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="balance-info">
+                                    <div class="token-name">VODP</div>
+                                    <div class="balance-amount">5,680.25</div>
+                                    <div class="balance-usd">≈ $5,680.25</div>
+                                </div>
+                            </div>
+                            <div class="balance-card">
+                                <div class="token-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="balance-info">
+                                    <div class="token-name">VODU</div>
+                                    <div class="balance-amount">12,450.75</div>
+                                    <div class="balance-usd">≈ $12,450.75</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transactions-section">
+                        <h3>История транзакций</h3>
+                        <div class="transactions-list">
+                            <div class="transaction-item">
+                                <div class="transaction-icon">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-type">Получение</div>
+                                    <div class="transaction-amount">+500 VODG</div>
+                                    <div class="transaction-date">2 часа назад</div>
+                                </div>
+                            </div>
+                            <div class="transaction-item">
+                                <div class="transaction-icon">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-type">Отправка</div>
+                                    <div class="transaction-amount">-100 VODP</div>
+                                    <div class="transaction-date">1 день назад</div>
+                                </div>
+                            </div>
+                            <div class="transaction-item">
+                                <div class="transaction-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-type">Награда</div>
+                                    <div class="transaction-amount">+50 VODU</div>
+                                    <div class="transaction-date">3 дня назад</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="staking-section">
+                        <h3>Стейкинг</h3>
+                        <div class="staking-options">
+                            <div class="staking-card">
+                                <h4>Базовый стейкинг</h4>
+                                <div class="staking-rate">5-15% годовых</div>
+                                <div class="staking-period">1-36 месяцев</div>
+                                <button class="btn btn-outline">Начать стейкинг</button>
+                            </div>
+                            <div class="staking-card">
+                                <h4>Экологический</h4>
+                                <div class="staking-rate">+5% бонус</div>
+                                <div class="staking-period">Экологические проекты</div>
+                                <button class="btn btn-outline">Начать стейкинг</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Биржа -->
+        <section id="exchange" class="page-section">
+            <div class="exchange-container">
+                <h2>Биржа VODeco</h2>
+                <div class="exchange-content">
+                    <div class="trading-pairs">
+                        <h3>Торговые пары</h3>
+                        <div class="pairs-list">
+                            <div class="pair-item">
+                                <div class="pair-info">
+                                    <div class="pair-name">VODG/USDT</div>
+                                    <div class="pair-price">$1.00</div>
+                                    <div class="pair-change positive">+2.5%</div>
+                                </div>
+                                <div class="pair-chart">
+                                    <canvas id="vodgChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="pair-item">
+                                <div class="pair-info">
+                                    <div class="pair-name">VODP/USDT</div>
+                                    <div class="pair-price">$1.00</div>
+                                    <div class="pair-change negative">-1.2%</div>
+                                </div>
+                                <div class="pair-chart">
+                                    <canvas id="vodpChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="pair-item">
+                                <div class="pair-info">
+                                    <div class="pair-name">VODU/USDT</div>
+                                    <div class="pair-price">$1.00</div>
+                                    <div class="pair-change positive">+0.8%</div>
+                                </div>
+                                <div class="pair-chart">
+                                    <canvas id="voduChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trading-interface">
+                        <div class="order-book">
+                            <h4>Книга ордеров</h4>
+                            <div class="order-list">
+                                <div class="order-header">
+                                    <span>Цена</span>
+                                    <span>Количество</span>
+                                    <span>Сумма</span>
+                                </div>
+                                <div class="order-row sell">
+                                    <span>1.02</span>
+                                    <span>100</span>
+                                    <span>102.00</span>
+                                </div>
+                                <div class="order-row sell">
+                                    <span>1.01</span>
+                                    <span>250</span>
+                                    <span>252.50</span>
+                                </div>
+                                <div class="order-row buy">
+                                    <span>0.99</span>
+                                    <span>150</span>
+                                    <span>148.50</span>
+                                </div>
+                                <div class="order-row buy">
+                                    <span>0.98</span>
+                                    <span>300</span>
+                                    <span>294.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trade-form">
+                            <h4>Торговля</h4>
+                            <form class="trade-form-content">
+                                <div class="form-group">
+                                    <label>Тип ордера</label>
+                                    <select>
+                                        <option>Рыночный</option>
+                                        <option>Лимитный</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Количество</label>
+                                    <input type="number" placeholder="0.00" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Цена</label>
+                                    <input type="number" placeholder="0.00" />
+                                </div>
+                                <div class="trade-buttons">
+                                    <button type="button" class="btn btn-success">Купить</button>
+                                    <button type="button" class="btn btn-danger">Продать</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Миссии -->
+        <section id="missions" class="page-section">
+            <div class="missions-container">
+                <h2>Миссии</h2>
+                <div class="missions-content">
+                    <div class="missions-filters">
+                        <button class="filter-btn active">Все</button>
+                        <button class="filter-btn">Экологические</button>
+                        <button class="filter-btn">Технические</button>
+                        <button class="filter-btn">Социальные</button>
+                    </div>
+                    <div class="missions-list">
+                        <div class="mission-card">
+                            <div class="mission-header">
+                                <h3>Мониторинг качества воды в реке Волга</h3>
+                                <span class="mission-status active">Активна</span>
+                            </div>
+                            <p>Установка и настройка датчиков для мониторинга качества воды в реке Волга. Требуется опыт работы с IoT-устройствами.</p>
+                            <div class="mission-details">
+                                <div class="mission-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>Награда: 500 VODG + 1000 VODU</span>
+                                </div>
+                                <div class="mission-deadline">
+                                    <i class="fas fa-clock"></i>
+                                    <span>До: 15 марта 2025</span>
+                                </div>
+                                <div class="mission-participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 12/20</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Принять участие</button>
+                        </div>
+                        <div class="mission-card">
+                            <div class="mission-header">
+                                <h3>Разработка AI-алгоритма оптимизации водопользования</h3>
+                                <span class="mission-status active">Активна</span>
+                            </div>
+                            <p>Создание алгоритма машинного обучения для оптимизации использования водных ресурсов в промышленности.</p>
+                            <div class="mission-details">
+                                <div class="mission-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>Награда: 1000 VODG + 2000 VODU</span>
+                                </div>
+                                <div class="mission-deadline">
+                                    <i class="fas fa-clock"></i>
+                                    <span>До: 30 апреля 2025</span>
+                                </div>
+                                <div class="mission-participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 5/10</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Принять участие</button>
+                        </div>
+                        <div class="mission-card">
+                            <div class="mission-header">
+                                <h3>Образовательная программа по водной экологии</h3>
+                                <span class="mission-status completed">Завершена</span>
+                            </div>
+                            <p>Проведение образовательных семинаров по водной экологии в школах и университетах.</p>
+                            <div class="mission-details">
+                                <div class="mission-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>Награда: 300 VODG + 500 VODU</span>
+                                </div>
+                                <div class="mission-deadline">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Завершена: 10 февраля 2025</span>
+                                </div>
+                                <div class="mission-participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 25/25</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" disabled>Завершена</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Группы -->
+        <section id="groups" class="page-section">
+            <div class="groups-container">
+                <h2>Группы</h2>
+                <div class="groups-content">
+                    <div class="groups-categories">
+                        <button class="category-btn active">Все группы</button>
+                        <button class="category-btn">Исследовательские</button>
+                        <button class="category-btn">Общественные</button>
+                        <button class="category-btn">Бизнес-проекты</button>
+                        <button class="category-btn">Объекты</button>
+                    </div>
+                    <div class="groups-list">
+                        <div class="group-card">
+                            <div class="group-header">
+                                <h3>Исследователи водной экологии</h3>
+                                <span class="group-type">Исследовательская</span>
+                            </div>
+                            <p>Группа ученых и исследователей, занимающихся изучением водных экосистем и разработкой инновационных решений.</p>
+                            <div class="group-stats">
+                                <div class="group-members">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 156</span>
+                                </div>
+                                <div class="group-projects">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Проектов: 23</span>
+                                </div>
+                                <div class="group-activity">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Активность: Высокая</span>
+                                </div>
+                            </div>
+                            <div class="group-actions">
+                                <button class="btn btn-primary">Присоединиться</button>
+                                <button class="btn btn-outline">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="group-card">
+                            <div class="group-header">
+                                <h3>Экологический активизм</h3>
+                                <span class="group-type">Общественная</span>
+                            </div>
+                            <p>Сообщество активистов, борющихся за сохранение водных ресурсов и защиту окружающей среды.</p>
+                            <div class="group-stats">
+                                <div class="group-members">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 342</span>
+                                </div>
+                                <div class="group-projects">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Проектов: 45</span>
+                                </div>
+                                <div class="group-activity">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Активность: Очень высокая</span>
+                                </div>
+                            </div>
+                            <div class="group-actions">
+                                <button class="btn btn-primary">Присоединиться</button>
+                                <button class="btn btn-outline">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="group-card">
+                            <div class="group-header">
+                                <h3>Водоочистные сооружения Москвы</h3>
+                                <span class="group-type">Объект</span>
+                            </div>
+                            <p>Группа управления и мониторинга водоочистных сооружений в Москве. Интеграция с системой VODeco.</p>
+                            <div class="group-stats">
+                                <div class="group-members">
+                                    <i class="fas fa-users"></i>
+                                    <span>Участников: 28</span>
+                                </div>
+                                <div class="group-projects">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Проектов: 8</span>
+                                </div>
+                                <div class="group-activity">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Активность: Средняя</span>
+                                </div>
+                            </div>
+                            <div class="group-actions">
+                                <button class="btn btn-primary">Присоединиться</button>
+                                <button class="btn btn-outline">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create-group">
+                        <h3>Создать группу</h3>
+                        <form class="create-group-form">
+                            <div class="form-group">
+                                <label>Название группы</label>
+                                <input type="text" placeholder="Введите название" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Описание</label>
+                                <textarea placeholder="Опишите цели и задачи группы" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Тип группы</label>
+                                <select required>
+                                    <option>Исследовательская</option>
+                                    <option>Общественная</option>
+                                    <option>Бизнес-проект</option>
+                                    <option>Объект</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Создать группу</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Презентация -->
+        <section id="presentation" class="page-section">
+            <div class="presentation-container">
+                <h2>Презентация VODeco</h2>
+                <div class="presentation-content">
+                    <div class="presentation-slides">
+                        <div class="slide active">
+                            <h3>Проблема глобального водного кризиса</h3>
+                            <div class="slide-content">
+                                <div class="problem-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-number">2.2B</div>
+                                        <div class="stat-label">человек без доступа к чистой воде</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number">40%</div>
+                                        <div class="stat-label">потерь воды из-за устаревшей инфраструктуры</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number">$500B</div>
+                                        <div class="stat-label">годовой ущерб от загрязнения воды</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <h3>Решение VODeco</h3>
+                            <div class="slide-content">
+                                <div class="solution-features">
+                                    <div class="feature-item">
+                                        <i class="fas fa-network-wired"></i>
+                                        <h4>IoT Мониторинг</h4>
+                                        <p>Реальное время мониторинга качества воды</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-coins"></i>
+                                        <h4>Токенизация</h4>
+                                        <p>1 VOD = 1 км³ воды</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-vote-yea"></i>
+                                        <h4>DAO Управление</h4>
+                                        <p>Децентрализованное принятие решений</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <h3>Токеномика</h3>
+                            <div class="slide-content">
+                                <div class="tokenomics-info">
+                                    <div class="token-card">
+                                        <h4>VODG (Governance)</h4>
+                                        <p>Токены управления для голосования в DAO</p>
+                                    </div>
+                                    <div class="token-card">
+                                        <h4>VODP (Project)</h4>
+                                        <p>Токены проектов для инвестирования</p>
+                                    </div>
+                                    <div class="token-card">
+                                        <h4>VODU (Utility)</h4>
+                                        <p>Утилитарные токены для использования сервисов</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="presentation-controls">
+                        <button class="prev-btn" onclick="changeSlide(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slide-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                        </div>
+                        <button class="next-btn" onclick="changeSlide(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VODeco</h4>
+                <p>Децентрализованная экосистема водных ресурсов</p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>info@vodeco.org</p>
+            </div>
+            <div class="footer-section">
+                <h4>Социальные сети</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Попап система -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <div class="popup-header">
+                <h3 id="popupTitle"></h3>
+            </div>
+            <div class="popup-body" id="popupBody">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/popup-system.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/spider-web.js"></script>
+    
+    <!-- Простой скрипт для бургер меню -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerBtn = document.getElementById('burgerBtn');
+            const burgerContent = document.getElementById('burgerContent');
+            
+            if (burgerBtn && burgerContent) {
+                burgerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    burgerBtn.classList.toggle('active');
+                    burgerContent.classList.toggle('active');
+                });
+                
+                // Закрытие меню при клике вне его
+                document.addEventListener('click', function(e) {
+                    if (!burgerBtn.contains(e.target) && !burgerContent.contains(e.target)) {
+                        burgerBtn.classList.remove('active');
+                        burgerContent.classList.remove('active');
+                    }
+                });
+                
+                // Закрытие меню при клике на ссылку
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Закрываем меню
+                        burgerBtn.classList.remove('active');
+                        burgerContent.classList.remove('active');
+                        
+                        // Скрываем все секции
+                        const sections = document.querySelectorAll('.page-section');
+                        sections.forEach(section => {
+                            section.classList.remove('active');
+                        });
+                        
+                        // Показываем выбранную секцию
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                        }
+                        
+                        // Обновляем активную ссылку
+                        navLinks.forEach(navLink => {
+                            navLink.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    });
+                });
+                
+                // Инициализация - показываем главную страницу
+                const homeSection = document.getElementById('home');
+                const homeLink = document.querySelector('a[href="#home"]');
+                if (homeSection && homeLink) {
+                    homeSection.classList.add('active');
+                    homeLink.classList.add('active');
+                }
+            }
+            
+            // Попап система
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupClose = document.querySelector('.popup-close');
+            const popupTitle = document.getElementById('popupTitle');
+            const popupBody = document.getElementById('popupBody');
+            
+            // Функция открытия попапа
+            window.openPopup = function(title, content) {
+                popupTitle.textContent = title;
+                popupBody.innerHTML = content;
+                popupOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+            
+            // Функция закрытия попапа
+            window.closePopup = function() {
+                popupOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+            
+            // Обработчики событий для попапа
+            if (popupClose) {
+                popupClose.addEventListener('click', closePopup);
+            }
+            
+            if (popupOverlay) {
+                popupOverlay.addEventListener('click', function(e) {
+                    if (e.target === popupOverlay) {
+                        closePopup();
+                    }
+                });
+            }
+            
+            // Закрытие попапа по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                    closePopup();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

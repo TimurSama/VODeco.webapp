@@ -1,0 +1,580 @@
+/* Адаптивные стили для VODeco */
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .burger-content {
+        min-width: 200px;
+        left: -50px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dao-content {
+        grid-template-columns: 1fr;
+    }
+
+    .monitoring-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .token-info {
+        grid-template-columns: 1fr;
+    }
+
+    .staking-options {
+        grid-template-columns: 1fr;
+    }
+
+    /* Новые страницы для мобильных */
+    .account-content {
+        grid-template-columns: 1fr;
+    }
+
+    .wallet-content {
+        grid-template-columns: 1fr;
+    }
+
+    .exchange-content {
+        grid-template-columns: 1fr;
+    }
+
+    .trading-interface {
+        grid-template-columns: 1fr;
+    }
+
+    .missions-list {
+        grid-template-columns: 1fr;
+    }
+
+    .groups-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .profile-stats {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .group-actions {
+        flex-direction: column;
+    }
+
+    .trade-buttons {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .page-section {
+        padding: 1rem;
+    }
+
+    .hero-section {
+        padding: 2rem 0;
+    }
+
+    .problem-section,
+    .solution-section {
+        padding: 2rem 0;
+    }
+
+    .dashboard-container,
+    .dao-container,
+    .tokenhub-container,
+    .vodcheck-container {
+        padding: 1rem 0;
+    }
+
+    .globe-animation {
+        height: 200px;
+    }
+
+    .globe {
+        width: 150px;
+        height: 150px;
+    }
+
+    .water-drop {
+        width: 60px;
+        height: 60px;
+    }
+
+    .ripple-1 { width: 80px; height: 80px; }
+    .ripple-2 { width: 120px; height: 120px; }
+    .ripple-3 { width: 160px; height: 160px; }
+}
+
+/* Планшеты (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header-container {
+        padding: 1.5rem 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-stats {
+        gap: 2rem;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dao-content {
+        grid-template-columns: 1fr;
+    }
+
+    .monitoring-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .token-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .staking-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Большие экраны (1025px и выше) */
+@media (min-width: 1025px) {
+    .header-container {
+        padding: 1rem 2rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-stats {
+        gap: 4rem;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .dao-content {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .monitoring-dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quality-metrics {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .token-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .staking-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Очень большие экраны (1440px и выше) */
+@media (min-width: 1440px) {
+    .header-container,
+    .page-section,
+    .footer-content {
+        max-width: 1400px;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .hero-stats {
+        gap: 5rem;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Портретная ориентация */
+@media (orientation: portrait) {
+    .hero-stats {
+        flex-direction: column;
+    }
+
+    .dashboard-grid,
+    .dao-content,
+    .monitoring-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ландшафтная ориентация */
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero-section {
+        padding: 1rem 0;
+    }
+
+    .hero-animation {
+        height: 100px;
+    }
+
+    .water-drop {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ripple-1 { width: 60px; height: 60px; }
+    .ripple-2 { width: 90px; height: 90px; }
+    .ripple-3 { width: 120px; height: 120px; }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Высокая плотность пикселей */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .spider-web-background {
+        background-size: 200% 200%;
+    }
+
+    .wave-overlay {
+        background-size: 150% 150%;
+    }
+}
+
+/* Темная тема (если поддерживается) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-dark: #0a0a0a;
+        --background-darker: #050505;
+        --text-color: #ffffff;
+        --text-secondary: #b8e6f0;
+    }
+}
+
+/* Светлая тема (если поддерживается) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-dark: #f8f9fa;
+        --background-darker: #e9ecef;
+        --text-color: #212529;
+        --text-secondary: #6c757d;
+    }
+}
+
+/* Уменьшенная анимация (если пользователь предпочитает) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .spider-web-background,
+    .wave-overlay,
+    .water-drop,
+    .ripple,
+    .globe,
+    .point,
+    .line {
+        animation: none !important;
+    }
+}
+
+/* Высокий контраст */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #00ffff;
+        --secondary-color: #0080ff;
+        --accent-color: #ffffff;
+        --text-color: #ffffff;
+        --text-secondary: #cccccc;
+        --border-color: #ffffff;
+    }
+
+    .btn {
+        border: 2px solid var(--primary-color);
+    }
+
+    .nav-link {
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* Печать */
+@media print {
+    .spider-web-background,
+    .wave-overlay,
+    .header,
+    .footer {
+        display: none;
+    }
+
+    .main-content {
+        margin-top: 0;
+    }
+
+    .page-section {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+
+    * {
+        color: black !important;
+        background: white !important;
+    }
+}
+
+/* Очень маленькие экраны (до 320px) */
+@media (max-width: 320px) {
+    .header-container {
+        padding: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .problem-item,
+    .feature-card,
+    .dashboard-card,
+    .proposal-item,
+    .token-card,
+    .quality-item {
+        padding: 1rem;
+    }
+
+    .hero-stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Средние экраны (321px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .quality-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Большие мобильные (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Новые страницы */
+    .account-content {
+        grid-template-columns: 1fr;
+    }
+
+    .wallet-content {
+        grid-template-columns: 1fr;
+    }
+
+    .exchange-content {
+        grid-template-columns: 1fr;
+    }
+
+    .trading-interface {
+        grid-template-columns: 1fr;
+    }
+
+    .missions-list {
+        grid-template-columns: 1fr;
+    }
+
+    .groups-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Горизонтальные планшеты (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+
+    .hero-animation {
+        height: 150px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dao-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .monitoring-dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Вертикальные планшеты (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .problem-stats,
+    .solution-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

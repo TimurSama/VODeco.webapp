@@ -1,0 +1,33 @@
+{
+  "name": "vodeco-webapp",
+  "version": "1.0.0",
+  "description": "Децентрализованная экосистема водных ресурсов VODeco",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'Static site - no build required'",
+    "serve": "npx serve . -p 3000"
+  },
+  "keywords": [
+    "water",
+    "blockchain",
+    "dao",
+    "iot",
+    "ecology",
+    "sustainability",
+    "vodeco"
+  ],
+  "author": "VODeco Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TimurSama/VODeco.webapp.git"
+  },
+  "homepage": "https://vodeco.org"
+}

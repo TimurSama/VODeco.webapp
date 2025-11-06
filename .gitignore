@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Windows specific
+$RECYCLE.BIN/
+
+# Mac specific
+.AppleDouble
+.LSOverride
+
+# Linux specific
+*~
+
+# Project specific
+# Не коммитим большие медиа файлы (если они не нужны в репозитории)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+
+# Документы Word (если они не нужны в репозитории)
+# *.docx
+# *.doc
+
+# Но оставляем важные изображения для проекта
+!пример фона.png
+!расчет кризиса 2045.png
+
